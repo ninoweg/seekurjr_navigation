@@ -1,0 +1,21 @@
+<launch>
+    <!-- Launch and set up LMS 100 -->
+    <node name="sick_lms_1xx" pkg="sick_scan" type="sick_generic_caller" respawn="false" output="screen">
+        <rosparam file="$(find seekurjr_navigation)/params/lms1xx_params.yaml" command="load" />
+    </node>
+
+    <!-- Launch Laser Filter for angular limitation -->
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain"  name="laser_filter">
+        <rosparam command="load" file="$(find seekurjr_navigation)/params/laser_filter_params.yaml" />
+    </node>
+
+
+    <!-- Launch TF and configuration between Base and Laser -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"  output="screen">
+        <rosparam file="$(find seekurjr_navigation)/params/tf_params.yaml" command="load" />
+    </node> 
+    
+    <!-- Launch RVIZ with configuration -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find seekurjr_navigation)/rviz/create_map.rviz" required="true" />
+   
+</launch> 
