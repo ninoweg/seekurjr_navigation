@@ -1,0 +1,6 @@
+<launch>
+    <!-- Launch RVIZ with params -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find seekurjr_navigation)/rviz/nav.rviz" required="true" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find seekurjr_navigation)/rviz/create_map.rviz" required="true" /> -->
+</launch>
+   
