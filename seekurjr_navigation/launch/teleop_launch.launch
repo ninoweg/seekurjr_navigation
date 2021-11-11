@@ -1,6 +1,0 @@
-<launch>
-    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen">
-        <remap from="cmd_vel" to="rosaria/cmd_vel"/>
-        <!--<param name="_repeat_rate" value="10" type="double"/>-->
-    </node>
-</launch>
