@@ -1,0 +1,18 @@
+intensity: true
+intensity_resolution_16bit: false
+min_ang: -0.785398163 # -2.356
+max_ang: 3.926990817 # 2.356
+frame_id: base_laser
+use_binary_protocol: false
+scanner_type: sick_lms_1xx
+range_max: 20.0
+hostname: 169.254.148.77
+port: 2112
+timelimit: 5
+start_services: true
+activate_lferec: true
+activate_lidoutputstate: true
+activate_lidinputstate: true
+min_intensity: 0.0 # Set range of LaserScan messages to infinity, if intensity < min_intensity (default: 0)
+ang_res: 0.5
+scan_freq: 50
