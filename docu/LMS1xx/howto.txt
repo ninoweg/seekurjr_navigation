@@ -1,0 +1,1 @@
+1. Install SOPAS on your Windows PC and connect your Laser Sensor via Ethernet
