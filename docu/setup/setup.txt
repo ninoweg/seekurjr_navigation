@@ -5,7 +5,7 @@
 4. Change user -> sudo nano /etc/hostname -> user=seekurjr
 5. Run sudo dpkg-reconfigure keyboard-configuration to reconfigure your keyboard
 6. sudo reboot to apply changes
-7. ip a to find out ip-adress
+7. ip a to find out ip-adress, or use app "fing" for andriod/ios
 8. nmtui to connect to wifi
 9. connect via sudo ssh ubuntu@<ip-adress>
 10. Install ROS Noetic and set it up
