@@ -1,6 +1,6 @@
 -  TODO  -
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
-2. connect raspberry to 5V, add connector
+2. connect raspberry to 5V, add connector, bring cable
 3. check external ports/connector types, label them 
 4. map terrace
 5. add node to navigate between certain points on terrace
