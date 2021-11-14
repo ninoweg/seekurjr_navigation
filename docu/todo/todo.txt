@@ -1,9 +1,11 @@
 -  TODO  -
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
-2. connect raspberry to 5V, add connector, label them
-3. check external ports/connector types, 
+2. connect raspberry to 5V, add connector
+3. check external ports/connector types, label them 
 4. map terrace
 5. add node to navigate between certain points on terrace
 6. set up router, connect Laser via usb-ethernet adapter and set ipadress for this connection, edit eth0 ip adrress, turn of wifi
 7. write documentation
 8. buy double sided tape
+9. drill holes to mount bumpers
+10. write node to initialize odom (for slippery surface like TU hallway)
