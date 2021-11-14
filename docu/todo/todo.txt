@@ -1,4 +1,4 @@
--  TODO
+-  TODO  -
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
 2. connect raspberry to 5V, add connector
 3. check external ports/connector types
