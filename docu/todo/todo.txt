@@ -11,3 +11,4 @@
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
 2. add node to navigate between certain points on terrace
   + http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+  + http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
