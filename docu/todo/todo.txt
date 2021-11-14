@@ -10,4 +10,3 @@
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
 2. add node to navigate between certain points on terrace
-3. write node to initialize odom (for slippery surface like TU hallway)
