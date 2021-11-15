@@ -5,10 +5,10 @@
 4. drill holes to mount bumpers, raspberry and switch
 5. check available external ports connector types (Rundsteckverbinder CPC Flansch), label them 
 6. map terrace
-7. write documentation
+7. add node to navigate between certain points on terrace
+  + http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+8. write documentation
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
   + http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
-2. add node to navigate between certain points on terrace
-  + http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
