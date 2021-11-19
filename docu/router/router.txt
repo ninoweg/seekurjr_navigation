@@ -4,5 +4,5 @@ https://www.pcengines.ch/pdf/alix2.pdf
 https://www.pcengines.ch/pdf/alix3d3.pdf
 
 worked using putty with serial 38400,8n1
-can be reset
-access over browser (192.168.1.1) -> monowall
+access over browser (192.168.1.1) -> monowall: admin/mono
+WLAN: seekurjr/seekurv4r
