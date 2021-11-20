@@ -1,14 +1,15 @@
 -  TODO  -
-1. connect raspberry to 5V, add connector, bring cable
-2. set up router, connect Laser via usb-ethernet adapter and set ipadress for this connection, edit eth0 ip adrress, turn of wifi
-3. buy double sided tape
-4. drill holes to mount bumpers, raspberry and switch
-5. check available external ports connector types (Rundsteckverbinder CPC Flansch), label them 
-6. map terrace
-7. add node to navigate between certain points on terrace
+1. buy double sided tape
+2. drill holes to mount raspberry and switch
+3. check available external ports connector types (Rundsteckverbinder CPC Flansch), label them 
+4. map terrace
+5. add node to navigate between certain points on terrace
   + http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
-8. write documentation
+6. write documentation
+7. check why network connection is so slow when booting
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
   + http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
+2. boot on startup:
+  + https://blog.roverrobotics.com/how-to-run-ros-on-startup-bootup/
