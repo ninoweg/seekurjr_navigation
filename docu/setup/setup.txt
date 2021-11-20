@@ -53,4 +53,4 @@
     + ip addr show
     + ping 169.254.148.77 to verify
 19. Run launchfiles on Raspberry
-    + roslaunch seekurjr_navigation amcl_launch.launch
+    + roslaunch seekurjr_navigation seekurjr_amcl.launch
