@@ -49,5 +49,8 @@
     + ROS_IP=<seekurjrs-ip-address>
 17. Connect RS232-to-USB Adapter and Ethernet-to-USB Adapter to Raspberry
 18. Set up Ethernet Connection for Laser
-    + 
+    + sudo ifconfig eth0 169.254.148.3 netmask 255.255.255.0 (change ip address of raspberry ethernet)
+    + ip addr show
+    + ping 169.254.148.77 to verify
 19. Run launchfiles on Raspberry
+    + roslaunch seekurjr_navigation amcl_launch.launch
