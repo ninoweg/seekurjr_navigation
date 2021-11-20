@@ -1,8 +1,12 @@
+Official docu from PC Engines GmbH for ATIX.3C board and accessories:
 https://www.pcengines.ch/ht_com.htm
 https://www.pcengines.ch/db9cab1.htm
 https://www.pcengines.ch/pdf/alix2.pdf
 https://www.pcengines.ch/pdf/alix3d3.pdf
 
-worked using putty with serial 38400,8n1
-access over browser (192.168.1.1) -> monowall: admin/mono
+Serial connection over SUB-D worked using putty (or screen) with serial 38400 (8n1)
+Open up casing, connect SUB-D on alix board and computer and restart to get boot message and connection. 
+Access over LAN and browser (192.168.1.1) (use PowerOverEthernet to power alix board and use a switch to access over LAN) 
+
+monowall: admin/mono
 WLAN: seekurjr/seekurv4r
