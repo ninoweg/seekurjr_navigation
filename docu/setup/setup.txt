@@ -18,14 +18,14 @@
 7. For MultipleMachines add two lines to your .bashrc-file: 
     + ROS_MASTER_URI=http://<seekurjrs-ip-address>
     + ROS_IP=<your-pcs-ip-address>
-8. Launch RVIZ Launchfiles
+8. Launch RVIZ Launchfiles (everything else runs on raspberry, you can change this and run only rosaria on raspberry and everything else on another PC to reduce RAM/CPU usage      on raspberry)
 
 - SETUP RASPBERRY FOR SEEKURJR -
 1. Install Ubuntu Server (Ubunutu 20.04.3 LTS) on Raspberry Pi 4 4GB 
     + https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview
 2. Do everything as described in 1. without installing a desktop (not needed when accessing over ssh and just consumes ram)
-3. Login: user=ubuntu, password=seekurjr
-4. When ubuntu is installed, change username -> "sudo nano /etc/hostname" -> user=seekurjr
+3. Login: user=ubuntu, password=seekurjr 
+4. When ubuntu is installed, change username -> "sudo nano /etc/hostname" -> user=seekurv4r (use "sudo passwd" to change password)
 5. Run "sudo dpkg-reconfigure keyboard-configuration" to reconfigure your keyboard
 6. "sudo reboot" to apply changes
 7. "ip a" to find out ip-adress, or use app "fing" for andriod/ios
@@ -49,4 +49,5 @@
     + ROS_IP=<seekurjrs-ip-address>
 17. Connect RS232-to-USB Adapter and Ethernet-to-USB Adapter to Raspberry
 18. Set up Ethernet Connection for Laser
+    + 
 19. Run launchfiles on Raspberry
