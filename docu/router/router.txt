@@ -10,3 +10,5 @@ Access over LAN and browser (192.168.1.1) (use PowerOverEthernet to power alix b
 
 monowall: admin/mono
 WLAN: seekurjr/seekurv4r
+
+if you reset the board, WLAN wont be working until you set it up over monowall
