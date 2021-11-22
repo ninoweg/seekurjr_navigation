@@ -17,6 +17,7 @@
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
         <param name="port" value="/dev/ttyUSB0" type="string"/>
+        <!-- <param name="port" value="/dev/ttyAMA0" type="string"/> --> 
     </node>
 
     <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen">
