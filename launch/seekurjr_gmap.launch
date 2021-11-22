@@ -30,7 +30,7 @@
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
         <rosparam file="$(find seekurjr_navigation)/params/gmap_params.yaml" command="load" />
 	<remap from="scan" to="scan_filtered"/>
-	<!-- <remap from="odom" to="rosaria/pose"/> -->
+	<remap from="odom" to="rosaria/pose"/>
     </node>
 
     <!-- Start move_base -->
