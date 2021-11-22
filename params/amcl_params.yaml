@@ -1,3 +1,7 @@
+# overall filter parameters
+min_particles: 100  #default
+max_particles: 5000 #default
+kld_err: 0.01 #default
 # General Parameters
 use_map_topic: true
 odom_model_type: diff
