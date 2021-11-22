@@ -49,9 +49,9 @@
         
         <param name="global_costmap/global_frame" value="map"/>
         <param name="global_costmap/robot_base_frame" value="base_link"/>
-        <param name="local_costmap/global_frame" value="odom"/>
+        <param name="local_costmap/global_frame" value="rosaria/pose"/>
         <param name="local_costmap/robot_base_frame" value="base_link"/>
-        <param name="DWAPlannerROS/global_frame_id" value="odom"/>
+        <param name="DWAPlannerROS/global_frame_id" value="rosaria/pose"/>
         
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
         <!-- <remap from="odom" to="rosaria/pose"/> -->
