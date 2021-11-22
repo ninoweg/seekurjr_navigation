@@ -1,6 +1,5 @@
 -  TODO  -
-1. buy double sided tape
-2. drill holes to mount raspberry and switch
+1. drill holes to mount raspberry and switch, tape down cables
 3. map terrace
 4. add node to navigate between certain points on terrace
   + http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
