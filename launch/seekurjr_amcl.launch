@@ -30,11 +30,11 @@
     <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/hallway.yaml" />       
 
     <!-- Launch AMCL with params-->
-	<node pkg="amcl" type="amcl" name="amcl">
-		<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
-		<remap from="odom" to="rosaria/pose"/>
-		<remap from="scan" to="scan_filtered"/>
-	</node>
+    <node pkg="amcl" type="amcl" name="amcl">
+	<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
+	<remap from="odom" to="rosaria/pose"/>
+	<remap from="scan" to="scan_filtered"/>
+    </node>
    
     <!-- Start move_base -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
