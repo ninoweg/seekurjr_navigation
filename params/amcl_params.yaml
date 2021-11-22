@@ -35,14 +35,14 @@ laser_likelihood_max_dist: 2.0      # 2.0
 laser_model_type: likelihood_field  # likelihood_field
 
 # odometry model parameters
-odom_model_type: diff     # diff
-odom_alpha1: 0.2          # 0.2
-odom_alpha2: 0.2          # 0.2
-odom_alpha3: 0.2          # 0.2
-odom_alpha4: 0.2          # 0.2
-odom_alpha5: 0.2          # 0.2
-odom_frame_id: odom       # odom
-base_frame_id: base_link  # base_link 
-global_frame_id: map      # map
-tf_broadcast: true        # true
+odom_model_type: diff       # diff
+odom_alpha1: 0.2            # 0.2
+odom_alpha2: 0.2            # 0.2
+odom_alpha3: 0.2            # 0.2
+odom_alpha4: 0.2            # 0.2
+odom_alpha5: 0.2            # 0.2
+odom_frame_id: rosaria/pose # odom
+base_frame_id: base_link    # base_link 
+global_frame_id: map        # map
+tf_broadcast: true          # true
 
