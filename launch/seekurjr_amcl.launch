@@ -10,6 +10,7 @@
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
         <param name="port" value="/dev/ttyUSB0" type="string"/>
+	<!-- for Raspberry Pi <param name="port" value="/dev/ttyAMA0" type="string"/> -->
     </node>
 
     <!-- Launch LMS 100 with params -->
@@ -26,7 +27,7 @@
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
 
     <!-- Launch MapServer -->
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/GangTU.yaml" />       
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/hallway.yaml" />       
 
     <!-- Launch AMCL with params-->
 	<node pkg="amcl" type="amcl" name="amcl">
@@ -53,5 +54,6 @@
         
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
         <remap from="odom" to="rosaria/pose"/>
+	<remap from="scan" to="scan_filtered"/>
     </node>
 </launch> 
