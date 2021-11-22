@@ -32,6 +32,7 @@
 	<node pkg="amcl" type="amcl" name="amcl">
 		<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
 		<remap from="odom" to="rosaria/pose"/>
+		<remap from="scan" to="scan_filtered"/>
 	</node>
    
     <!-- Start move_base -->
