@@ -12,5 +12,5 @@
 -  OPTIONAL  - 
 2. boot on startup:
   + https://blog.roverrobotics.com/how-to-run-ros-on-startup-bootup/
-3. check available external ports connector types (Rundsteckverbinder CPC Flansch), label them 
+3. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
 4. try rosrun rqt_reconfigure rqt_reconfigure
