@@ -1,10 +1,9 @@
 -  TODO  -
-1. drill holes to mount raspberry and switch, tape down cables
-2. map terrace, clean it with gimp and lower resolution
+1. map terrace and clean it with gimp
 3. check if node simple_navigation_goals is running as it should, use rostopic echo /clicked_point to get coordinates on map
-4. write documentation
-5. check why network connection is so slow when booting, check .bashrc, /etc/hosts and /etc/hostname for errors
-6. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
+4. check why network connection is so slow when booting, check .bashrc, /etc/hosts and /etc/hostname for errors
+5. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
+6. write documentation
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
