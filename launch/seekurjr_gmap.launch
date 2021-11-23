@@ -29,8 +29,8 @@
     <!-- Launch Gmapping-->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
         <rosparam file="$(find seekurjr_navigation)/params/gmap_params.yaml" command="load" />
-	<remap from="scan" to="scan_filtered"/>
-	<remap from="odom" to="rosaria/pose"/>
+        <remap from="scan" to="scan_filtered"/>
+        <remap from="odom" to="rosaria/pose"/>
     </node>
 
     <!-- Start move_base -->
@@ -45,11 +45,12 @@
         
         <param name="global_costmap/global_frame" value="map"/>
         <param name="global_costmap/robot_base_frame" value="base_link"/>
-        <param name="local_costmap/global_frame" value="rosaria/pose"/>
+        <param name="local_costmap/global_frame" value="odom"/>
         <param name="local_costmap/robot_base_frame" value="base_link"/>
-        <param name="DWAPlannerROS/global_frame_id" value="rosaria/pose"/>
-        <param name="TrajectoryPlannerROS/global_frame_id" value="rosaria/pose"/>
+        <param name="DWAPlannerROS/global_frame_id" value="odom"/>
+        <param name="TrajectoryPlannerROS/global_frame_id" value="odom"/>
         
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
+        <remap from="odom" to="rosaria/pose" />
     </node>
 </launch> 

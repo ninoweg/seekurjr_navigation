@@ -27,14 +27,14 @@
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
 
     <!-- Launch MapServer -->
-    <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/hallway.yaml" />        
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/GangTU.yaml" />        
     <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/terrace.yaml" /> -->	
 	
     <!-- Launch AMCL with params-->
     <node pkg="amcl" type="amcl" name="amcl">
 	<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
-	<remap from="scan" to="scan_filtered"/>
-	<!-- <remap from="odom" to="rosaria/pose"/> -->
+    	<remap from="scan" to="scan_filtered"/>
+        <remap from="odom" to="rosaria/pose"/>
     </node>
    
     <!-- Start move_base -->
@@ -49,11 +49,12 @@
         
         <param name="global_costmap/global_frame" value="map"/>
         <param name="global_costmap/robot_base_frame" value="base_link"/>
-        <param name="local_costmap/global_frame" value="rosaria/pose"/>
+        <param name="local_costmap/global_frame" value="odom"/>
         <param name="local_costmap/robot_base_frame" value="base_link"/>
-        <param name="DWAPlannerROS/global_frame_id" value="rosaria/pose"/>
-        <param name="TrajectoryPlannerROS/global_frame_id" value="rosaria/pose"/>        
+        <param name="DWAPlannerROS/global_frame_id" value="odom"/>
+        <param name="TrajectoryPlannerROS/global_frame_id" value="odom"/>        
 	    
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
+        <remap from="odom" to="rosaria/pose" />
     </node>
 </launch> 
