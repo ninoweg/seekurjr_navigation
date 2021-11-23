@@ -1,12 +1,16 @@
 How To Build A Map
-
-1. run create_map.launch
-2. rosbag record -O mylaserdata /scan_filtered /tf /rosaria/pose
-3. drive robot around and ctrl+c rosbag when finished 
-4. rosparam set use_sim_time true
-5. rosrun gmapping slam_gmapping scan:=scan_filtered
-6. rosbag play --clock mylaserdata.bag
-7. rosrun map_server map_saver -f <map_name>
+Launch nodes and start recording (in three tabs):
+  + roslaunch seekurjr_navigation create_map.launch
+  + roslaunch seekurjr_navigation teleop_launch.launch
+  + rosbag record -O mylaserdata /scan_filtered /tf /rosaria/pose
+Drive robot around and kill rosbag when finished. 
+Run:
+  + rosparam set use_sim_time true
+  + rosrun gmapping slam_gmapping scan:=scan_filtered
+In another tab:
+  + rosbag play --clock mylaserdata.bag
+When process is finished:
+  + rosrun map_server map_saver -f <map_name>
 
 General explanation:
 http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData
