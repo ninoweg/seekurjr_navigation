@@ -1,4 +1,4 @@
-How To Build A Map
+- How To Build A Map -
 Launch nodes and start recording (in three tabs):
   + roslaunch seekurjr_navigation create_map.launch
   + roslaunch seekurjr_navigation teleop_launch.launch
