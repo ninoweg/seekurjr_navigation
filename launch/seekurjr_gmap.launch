@@ -9,8 +9,7 @@
 
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
-        <param name="port" value="/dev/ttyUSB0" type="string"/>
-	<!-- <param name="port" value="/dev/ttyAMA0" type="string"/> -->    
+        <param name="port" value="/dev/ttyUSB0" type="string"/> 
     </node>
 
     <!-- Launch LMS 100 with params -->
@@ -29,7 +28,7 @@
     <!-- Launch Gmapping-->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
         <rosparam file="$(find seekurjr_navigation)/params/gmap_params.yaml" command="load" />
-        <remap from="scan" to="scan_filtered"/>
+        <remap from="scan" to="scan_filtered"/> <!-- ADDED -->
         <remap from="odom" to="rosaria/pose"/>
     </node>
 
@@ -51,6 +50,6 @@
         <param name="TrajectoryPlannerROS/global_frame_id" value="odom"/>
         
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
-        <remap from="odom" to="rosaria/pose" />
+        <remap from="odom" to="rosaria/pose"/>
     </node>
 </launch> 
