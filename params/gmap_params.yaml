@@ -2,7 +2,7 @@ inverted_laser: false     # false
 throttle_scans: 1         # 1
 base_frame: base_link     # base_link
 map_frame: map            # map
-odom_frame: rosaria/pose  # odom
+odom_frame: odom          # odom
 map_update_interval: 2.0  # 5.0
 maxUrange: 20.0           # 80.0
 sigma: 0.05               # 0.05
