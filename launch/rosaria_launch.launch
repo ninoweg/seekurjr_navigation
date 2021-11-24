@@ -1,0 +1,6 @@
+<launch>
+    <!-- Launch Rosaria and asign USB port -->
+    <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
+        <param name="port" value="/dev/ttyUSB0" type="string"/>
+    </node>
+</launch>
