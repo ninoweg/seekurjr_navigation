@@ -15,19 +15,20 @@
     + bumper_state_pointcloud - catkin: https://github.com/ninoweg/bumper_state_pointcloud.git
 4. Install VS Code
     + https://code.visualstudio.com/download
-5. "sudo nano /ect/hosts" and add your PCs and SeekurJrs IP Address and Name
+5. "sudo nano /ect/hosts" and add your PCs and SeekurJrs IP Address and Name (do not delete/change anything else, might cause network errors)
 6. "sudo nano /etc/hostname" to check your PCs name
 7. For MultipleMachines add two lines to your .bashrc-file: 
-    + ROS_MASTER_URI=http://<seekurjrs-ip-address>
+    + ROS_MASTER_URI=http://<your-pcs-ip-address>
     + ROS_IP=<your-pcs-ip-address>
-8. Launch RVIZ Launchfiles (everything else runs on raspberry, you can change this and run only rosaria on raspberry and everything else on another PC to reduce RAM/CPU usage      on raspberry)
+    + when you are not running on multiple machines or in another network, remember to comment out any lines you added/edit your ip-adress in /etc/hosts
+8. Launch rviz.lauch (gmap/amcl.launch files only run on raspberry (LMS and Rosaria are connected to the raspberry), you can run everything else on your PC):
 
 - SETUP RASPBERRY FOR SEEKURJR -
 1. Install Ubuntu Server (Ubunutu 20.04.3 LTS) on Raspberry Pi 4 4GB 
     + https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview
 2. Do everything as described in 1. without installing a desktop (not needed when accessing over ssh and just consumes ram)
-3. Login: user=ubuntu, password=seekurjr 
-4. When ubuntu is installed, change username -> "sudo nano /etc/hostname" -> user=seekurv4r (use "sudo passwd" to change password)
+3. Login: user=ubuntu, password=seekurv4r 
+4. When ubuntu is installed, change username -> "sudo nano /etc/hostname" -> user=seekurjr (use "sudo passwd" to change password)
 5. Run "sudo dpkg-reconfigure keyboard-configuration" to reconfigure your keyboard
 6. "sudo reboot" to apply changes
 7. "ip a" to find out ip-adress, or use app "fing" for andriod/ios
@@ -44,15 +45,21 @@
     + rosaria - catkin: https://github.com/amor-ros-pkg/rosaria.git
     + teleop - catkin: https://github.com/ros-teleop/teleop_twist_keyboard.git 
     + seekurjr - catkin: https://github.com/ninoweg/seekurjr.git
-13. "sudo nano /ect/hosts" and add your PCs and SeekurJrs IP Address and Name
+    + simple_navigation_goals - catkin: https://github.com/ninoweg/simple_navigation_goals.git
+    + bumper_state_pointcloud - catkin: https://github.com/ninoweg/bumper_state_pointcloud.git
+13. "sudo nano /ect/hosts" and add your PCs and SeekurJrs IP Address and Name (do not delete/change anything else, might cause network errors)
 14. "sudo nano /etc/hostname" to check name
 15. For MultipleMachines add two lines to .bashrc-file: 
-    + ROS_MASTER_URI=http://<seekurjrs-ip-address>
+    + ROS_MASTER_URI=http://<your-pcs-ip-address>
     + ROS_IP=<seekurjrs-ip-address>
+    + when you are not running on multiple machines or in another network, remember to comment out any lines you added/edit your ip-adress in /etc/hosts
 17. Connect RS232-to-USB Adapter and Ethernet-to-USB Adapter to Raspberry
-18. Set up Ethernet Connection for Laser
-    + sudo ifconfig eth0 169.254.148.3 netmask 255.255.255.0 (change ip address of raspberry ethernet)
+18. Set up Network Connection
+    + sudo ifconfig eth0 192.168.1.199 netmask 255.255.255.0 up (for Ethernet)
+    + sudo ifconfig eth1 169.254.148.3 netmask 255.255.255.0 up (for Laser)
+    + sudo ifconfig wlan0 down (not needed)
     + ip addr show
-    + ping 169.254.148.77 to verify
+    + ping 169.254.148.77 to verify if Laser is connected
+    + make this changes using NetworkManager (over graphical interface), otherwise NetworkManager will reset them during booting
 19. Run launchfiles on Raspberry
-    + roslaunch seekurjr_navigation seekurjr_amcl.launch
+    + roslaunch seekurjr_navigation seekurjr_amcl.launch/seekurjr_gmap.launch
