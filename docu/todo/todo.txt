@@ -4,6 +4,7 @@
 3. write documentation
 4. router setup screenshots
 5. screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
+6. check laser_link tf, might cause problems
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
