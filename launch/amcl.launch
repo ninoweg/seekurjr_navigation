@@ -23,17 +23,17 @@
     </node>
 
     <!-- Launch TF with params -->
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> -->
 
     <!-- Launch MapServer -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/terrace.yaml" />       
 
     <!-- Launch AMCL with params-->
-	<node pkg="amcl" type="amcl" name="amcl">
-		<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
-		<remap from="scan" to="scan_filtered"/> 
+    <node pkg="amcl" type="amcl" name="amcl">
+	<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
+	<remap from="scan" to="scan_filtered"/> 
         <remap from="odom" to="rosaria/pose"/>
-	</node>
+    </node>
    
     <!-- Start move_base -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
