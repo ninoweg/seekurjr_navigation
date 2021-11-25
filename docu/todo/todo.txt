@@ -1,8 +1,7 @@
 -  TODO  -
-1. map terrace and clean it with gimp
-2. check if node simple_navigation_goals is running as it should, use rostopic echo /clicked_point to get coordinates on map
-3. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
-4. write documentation
+1. check if node simple_navigation_goals is running as it should, use rostopic echo /clicked_point to get coordinates on map
+2. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
+3. write documentation
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
