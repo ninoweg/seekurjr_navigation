@@ -1,11 +1,11 @@
 <!-- Main launch file to navigate SeekurJr on an existing map (on Raspberry). Run rviz to send goals (on PC). -->
 <launch>
-    <!-- URDF -->
-    <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />
-    <param name="robot_description" textfile="$(arg urdf)"  />
-  	<param name="use_gui" value="false" />
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <!-- Launch TF with params and Robot URDF -->
+    <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />   
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+	<param name="robot_description" textfile="$(arg urdf)"  />    	   
+    </node>
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" />	
 
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
@@ -21,9 +21,6 @@
     <node pkg="laser_filters" type="scan_to_scan_filter_chain"  name="laser_filter">
         <rosparam command="load" file="$(find seekurjr_navigation)/params/laser_filter_params.yaml" />
     </node>
-
-    <!-- Launch TF with params -->
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" />
 
     <!-- Launch MapServer -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/terrace.yaml" />       
