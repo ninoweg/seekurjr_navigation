@@ -1,5 +1,5 @@
 - How To Build A Map -
-Launch nodes and start recording (in three tabs):
+Launch nodes and start recording (in different tabs):
   + roslaunch seekurjr_navigation create_map.launch
   + roslaunch seekurjr_navigation teleop_launch.launch
   + rosbag record -O mylaserdata /scan_filtered /tf /rosaria/pose
