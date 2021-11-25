@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="SeekurJr">
+	
+  <link name="base_link">
+		<visual>
+		  <origin xyz="0 0 0.3" rpy="0 0 0"/>
+		  <geometry name="skj_geom_1">
+     	  <box size="0.400 0.620 0.286" />
+		  </geometry>
+		  <material name="BodyBlue">
+			  <color rgba="0.0 0.0 1.0 1.0"/>
+		  </material>
+	  </visual>
+    <visual>
+		  <origin xyz="0.2 0 0.3" rpy="0 0 0"/>
+      <geometry name="skj_geom_2">
+          <cylinder radius="0.31" length="0.286"/>
+      </geometry>
+		  <material name="BodyBlue">
+			  <color rgba="0.0 0.0 1.0 1.0"/>
+		  </material>
+	  </visual>
+    <visual>
+		  <origin xyz="-0.2 0 0.3" rpy="0 0 0"/>
+      <geometry name="skj_geom_2">
+          <cylinder radius="0.31" length="0.286"/>
+      </geometry>
+		  <material name="BodyBlue">
+			  <color rgba="0.0 0.0 1.0 1.0"/>
+		  </material>
+	  </visual>
+	</link>
+
+  <link name="laser">
+    <visual>
+      <geometry name="skj_laser">
+          <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+		  <material name="LaserWhite">
+			  <color rgba="1.0 1.0 1.0 1.0"/>
+		  </material>
+	  </visual>
+	</link>
+
+  <joint name="base_to_laser" type="continuous">
+    <origin xyz="0.51 0 0.3" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="laser"/>
+  </joint> 
+
+  <xacro:macro name="skj_wheel" params="end side endreflect sidereflect">
+
+    <link name="skj_${end}_${side}_wheel">
+      <visual>
+        <origin xyz="0 0 0.1" rpy="-1.570795 0 0"/>
+        <geometry name="skj_wheel_geom">
+          <cylinder radius="0.2" length="0.2"/>
+        </geometry>
+        <material name="WheelBlack">
+          <color rgba="0.117 0.117 0.117 1"/>
+        </material>
+      </visual>
+      <visual>
+        <origin xyz="0 0 0.1" rpy="-1.570795 0 0"/>
+        <geometry name="skj_wheel_geom">
+          <cylinder radius="0.05" length="0.21"/>
+        </geometry>
+        <material name="WheelWhite">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="skj_${end}_${side}_wheel_joint" type="continuous">
+      <axis xyz="0 1 0"/>
+      <anchor xyz="0 0 0"/>
+      <limit effort="100" velocity="100" />
+      <joint_properties damping="0.7"/>
+      <origin xyz="${endreflect} ${sidereflect} 0.1" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="skj_${end}_${side}_wheel"/>
+    </joint> 
+
+  </xacro:macro>
+
+  <xacro:skj_wheel end="front" side="left" endreflect="0.21" sidereflect="0.3" />
+  <xacro:skj_wheel end="front" side="right" endreflect="0.21" sidereflect="-0.3" />
+  <xacro:skj_wheel end="back" side="left" endreflect="-0.21" sidereflect="0.3" />
+  <xacro:skj_wheel end="back" side="right" endreflect="-0.21" sidereflect="-0.3" />
+
+</robot>
+
