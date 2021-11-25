@@ -1,0 +1,20 @@
+# General Parameters
+use_map_topic: true
+odom_model_type: diff
+odom_frame_id: odom
+base_frame_id: base_link
+scan_topic: scan_filtered
+
+# Filter Parameters
+min_particles: 100
+max_particles: 5000
+update_min_d: 0.2
+update_min_a: 0.17
+resample_interval: 1
+transform_tolerance: 0.2
+gui_publish_rate: 10.0
+
+# Laser Parameters
+laser_min_range: 0.5
+laser_max_range: 20
+laser_max_beams: 30
