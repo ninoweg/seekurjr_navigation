@@ -1,4 +1,4 @@
-<!-- Navigate SeekurJr while creating map using slam_gmapping (on Raspberry). Run rviz to send goals (on PC). -->
+<!-- Navigate SeekurJr while creating map using slam_gmapping (on Raspberry). Run rviz to visualize/send goals (on PC). -->
 <launch>
     <!-- Launch TF with params and Robot URDF -->
     <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />   
