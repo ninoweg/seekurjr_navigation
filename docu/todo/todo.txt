@@ -3,6 +3,7 @@
 2. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
 3. write documentation
 4. router setup screenshots
+5. screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
 
 -  OPTIONAL  - 
 1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
