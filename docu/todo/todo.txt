@@ -1,15 +1,11 @@
 -  TODO  -
-1. check if node simple_navigation_goals is running as it should, use rostopic echo /clicked_point to get coordinates on map
-2. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
-3. write documentation
-4. router setup screenshots
-5. screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
-6. check laser_link tf, might cause problems
+1. check if node simple_navigation_goals/bumper_state is running as it should, use rostopic echo /clicked_point to get coordinates on map
+2. router setup screenshots
+3. screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
+4. check laser_link tf, might cause problems
+5. write documentation
 
 -  OPTIONAL  - 
-1. bumper point cloud publisher which subscribes to rosaria/bumperstate and includes tf for every bumper
-  + http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
-2. boot on startup:
-  + https://blog.roverrobotics.com/how-to-run-ros-on-startup-bootup/
-3. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
-4. try rosrun rqt_reconfigure rqt_reconfigure
+1. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
+2. try rosrun rqt_reconfigure rqt_reconfigure
+3. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
