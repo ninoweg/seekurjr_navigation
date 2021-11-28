@@ -42,9 +42,7 @@
     + sick_scan - catkin: https://github.com/SICKAG/sick_scan.git
     + rosaria - catkin: https://github.com/amor-ros-pkg/rosaria.git
     + teleop - catkin: https://github.com/ros-teleop/teleop_twist_keyboard.git 
-    + seekurjr - catkin: https://github.com/ninoweg/seekurjr.git
-    + simple_navigation_goals - catkin: https://github.com/ninoweg/simple_navigation_goals.git
-    + bumper_state_pointcloud - catkin: https://github.com/ninoweg/bumper_state_pointcloud.git
+    + seekurjr_navigation - catkin: https://github.com/ninoweg/seekurjr.git
 13. "sudo nano /ect/hosts" and add your PCs and SeekurJrs IP Address and Name (do not delete/change anything else, might cause network errors)
 14. "sudo nano /etc/hostname" to check name
 15. For MultipleMachines add two lines to .bashrc-file: 
