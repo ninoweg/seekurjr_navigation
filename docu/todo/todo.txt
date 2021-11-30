@@ -9,3 +9,4 @@
 2. try rosrun rqt_reconfigure rqt_reconfigure
 3. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
 4. http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
+5. https://gist.github.com/kartikmohta/67cafc968ba5146bc6dcaf721e61b914
