@@ -1,7 +1,8 @@
 -  TODO  -
 1. router setup screenshots, screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
 2. check laser_link tf, might cause problems
-3. write documentation
+3. check bumper_state
+4. write documentation
 
 -  OPTIONAL  - 
 1. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
