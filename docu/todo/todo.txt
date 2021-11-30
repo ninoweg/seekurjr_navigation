@@ -1,11 +1,10 @@
 -  TODO  -
-1. check if node simple_navigation_goals/bumper_state is running as it should, use rostopic echo /clicked_point to get coordinates on map
-2. router setup screenshots
-3. screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
-4. check laser_link tf, might cause problems
-5. write documentation
+1. router setup screenshots, screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
+2. check laser_link tf, might cause problems
+3. write documentation
 
 -  OPTIONAL  - 
 1. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
 2. try rosrun rqt_reconfigure rqt_reconfigure
 3. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
+4. http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
