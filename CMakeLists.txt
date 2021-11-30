@@ -8,12 +8,10 @@ project(seekurjr_navigation)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  move_base
+  actionlib
+  move_base_msgs
   rosaria
-  sick_scan
-  map_server
-  amcl
-  gmapping
+  roscpp
 )
 
 ## System dependencies are found with CMake's conventions
@@ -207,3 +205,9 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(bumper_state src/bumper_state.cpp)
+target_link_libraries(bumper_state ${catkin_LIBRARIES}) 
+
+add_executable(simple_navigation_goals src/simple_navigation_goals.cpp)
+target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES}) 

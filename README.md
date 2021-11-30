@@ -7,5 +7,4 @@ Includes:
 + map: maps of public terrace used for amcl
 + params: yaml files which set all necessary parameters
 + rviz: rviz setup files for starting rviz with correct settings
-+ src: source code for simple_navigation_goal and bumper_state
 + urdf: simplified version of SeekurJr, edit only xacro file for changes and create new urdf file from there
