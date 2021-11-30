@@ -1,0 +1,3 @@
+<launch>
+    <node name="bumper_state" pkg="bumper_state" type="bumper_state" output="screen"/>
+</launch>

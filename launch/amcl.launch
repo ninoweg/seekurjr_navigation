@@ -1,11 +1,14 @@
 <!-- Main launch file to navigate SeekurJr on an existing map (on Raspberry). Run rviz to send goals (on PC). -->
 <launch>
     <!-- Launch TF with params and Robot URDF -->
-    <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />   
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
-	<param name="robot_description" textfile="$(arg urdf)"  />    	   
-    </node>
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" />	
+    <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />
+    <param name="robot_description" textfile="$(arg urdf)"  />
+  	<param name="use_gui" value="false" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	
+    <!-- Launch TF with params -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
 
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
@@ -41,12 +44,6 @@
         <rosparam file="$(find seekurjr_navigation)/params/base_local_planner_params.yaml" command="load" />
         <rosparam file="$(find seekurjr_navigation)/params/base_global_planner_params.yaml" command="load" />
         <rosparam file="$(find seekurjr_navigation)/params/move_base_params.yaml" command="load" />
-        
-        <!-- <param name="global_costmap/global_frame" value="map"/> -->
-        <!-- <param name="global_costmap/robot_base_frame" value="base_link"/> -->
-        <!-- <param name="local_costmap/global_frame" value="odom"/> -->
-        <!-- <param name="local_costmap/robot_base_frame" value="base_link"/> -->
-        <!-- <param name="DWAPlannerROS/global_frame_id" value="odom"/> -->
         
         <remap from="cmd_vel" to="rosaria/cmd_vel"/>
         <remap from="odom" to="rosaria/pose"/>
