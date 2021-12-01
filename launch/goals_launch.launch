@@ -1,5 +1,5 @@
 <launch>
-    <node name="simple_navigation_goals" pkg="simple_navigation_goals" type="simple_navigation_goals" output="screen">
-        <rosparam file="$(find simple_navigation_goals)/params/simple_navigation_goals.yaml" command="load" />
+    <node pkg="seekurjr_navigation" name="simple_navigation_goals"  type="simple_navigation_goals" output="screen">
+        <rosparam file="$(find seekurjr_navigation)/params/simple_navigation_goals.yaml" command="load" />
     </node>
 </launch>

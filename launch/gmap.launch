@@ -10,7 +10,6 @@
     <!-- Launch TF with params -->
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
 
-
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
         <param name="port" value="/dev/ttyUSB0" type="string"/>
@@ -26,6 +25,9 @@
         <rosparam command="load" file="$(find seekurjr_navigation)/params/laser_filter_params.yaml" />
     </node>
 
+    <!-- Launch Bumper State -->
+    <node pkg="seekurjr_navigation" name="bumper_state" type="bumper_state" output="screen"/>
+    
     <!-- Launch Gmapping-->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
         <rosparam file="$(find seekurjr_navigation)/params/gmap_params.yaml" command="load" />
