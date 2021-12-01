@@ -8,7 +8,9 @@ float battery_state = 0.0;
 
 void batterystateCallback(const std_msgs::Float32::ConstPtr& msg)
 {
+  ROS_INFO("Battery State was updated!");
   battery_state=msg->data;
+  ROS_INFO("Battery state: [%f]", battery_state);
 }
 
 int main(int argc, char** argv){
@@ -53,7 +55,6 @@ int main(int argc, char** argv){
       goal.target_pose.pose.position.y = goals[i+1];
       goal.target_pose.pose.orientation.w = goals[i+2];
 
-      ROS_INFO("Battery state: [%f]", battery_state);
       ROS_INFO("Sending goal");
       ac.sendGoal(goal);
 

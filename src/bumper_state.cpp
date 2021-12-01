@@ -11,7 +11,6 @@ std::vector<uint8_t, std::allocator<uint8_t>> rear_bumper_state;
 
 void bumperstateCallback(const rosaria::BumperState::ConstPtr& msg)
 {
-  ROS_INFO("Bumper State was updated!");
   front_bumper_state = msg->front_bumpers;
   rear_bumper_state = msg->rear_bumpers;
 }
@@ -36,35 +35,37 @@ int main(int argc, char** argv){
   ros::Publisher cmd_bumper = n.advertise<geometry_msgs::Twist>("/rosaria/cmd_vel", 100);
   geometry_msgs::Twist cmd_msg;
 
-  for(int i = 0; i<front_bumper_state.size(); i++)
-  {
-    if(front_bumper_state.at(i)==0){
-      ac.cancelAllGoals();
-      cmd_msg.linear.x = 0;
-      cmd_msg.linear.y = 0;
-      cmd_msg.linear.z = 0;
-      cmd_msg.angular.x = 0;
-      cmd_msg.angular.y = 0;
-      cmd_msg.angular.z = 0;
-      ROS_INFO("Front Bumper Number [%i] activated! Canceled all Goals.", front_bumper_state.at(i));
-    };
-  }
+  while(true){
+    for(int k = 0; k<front_bumper_state.size(); k++)
+    {
+      if(front_bumper_state.at(k)==1){
+        ac.cancelAllGoals();
+        cmd_msg.linear.x = 0;
+        cmd_msg.linear.y = 0;
+        cmd_msg.linear.z = 0;
+        cmd_msg.angular.x = 0;
+        cmd_msg.angular.y = 0;
+        cmd_msg.angular.z = 0;
+        ROS_INFO("Front Bumper [%i] activated! Canceled all Goals.", k);
+      }
+    }
 
-  for(int i = 0; i<rear_bumper_state.size(); i++)
-  {
-    if(front_bumper_state.at(i)==0){
-      ac.cancelAllGoals();
-      cmd_msg.linear.x = 0;
-      cmd_msg.linear.y = 0;
-      cmd_msg.linear.z = 0;
-      cmd_msg.angular.x = 0;
-      cmd_msg.angular.y = 0;
-      cmd_msg.angular.z = 0;
-      ROS_INFO("Rear Bumper Number [%i] activated! Canceled all Goals.", front_bumper_state.at(i));
-    };
+    for(int k = 0; k<rear_bumper_state.size(); k++)
+    {
+      if(rear_bumper_state.at(k)==1){
+        ac.cancelAllGoals();
+        cmd_msg.linear.x = 0;
+        cmd_msg.linear.y = 0;
+        cmd_msg.linear.z = 0;
+        cmd_msg.angular.x = 0;
+        cmd_msg.angular.y = 0;
+        cmd_msg.angular.z = 0;
+        ROS_INFO("Rear Bumper [%i] activated! Canceled all Goals.", k);
+      }
+    }
+    
+    ros::spinOnce();
   }
-  
-  ros::spin();
 
   return 0;
 
