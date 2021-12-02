@@ -18,7 +18,7 @@ int main(int argc, char** argv){
   move_base_msgs::MoveBaseGoal goal;
   float battery_state = 0.0;
 
-  ros::init(argc, argv, "simple_navigation_goals");
+  ros::init(argc, argv, "send_goals");
   
   //tell the action client that we want to spin a thread by default
   MoveBaseClient ac("move_base", true);
