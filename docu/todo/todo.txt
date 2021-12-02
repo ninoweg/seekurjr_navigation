@@ -1,5 +1,5 @@
 -  TODO  -
-1. router setup screenshots, screenshots of rqt_graph and rqt_tf_tree
+1. screenshots -> router setup, rqt_graph and rqt_tf_tree
 2. check laser_link tf, might cause problems (due to robot model or because laserdata should be changed to pointcloud2)
 3. check V2 of simple_nav_goal and bumper_state
 4. tune navigation -> use:
