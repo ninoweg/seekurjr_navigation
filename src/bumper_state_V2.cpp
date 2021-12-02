@@ -31,7 +31,7 @@ int main(int argc, char** argv){
     {
       motor.waitForExistence();
       motor.call(srv);
-      ROS_INFO("Bumper activated! Canceled all Goals and deactivated Motors.");
+      ROS_INFO("Bumper activated! Motors deactivated.");
     }
     ros::spinOnce();
   }
