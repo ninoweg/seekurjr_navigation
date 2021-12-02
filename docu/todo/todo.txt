@@ -1,12 +1,14 @@
 -  TODO  -
-1. router setup screenshots, screenshots of rqt_graph, rqt_tf_tree, robot navigating on map
-2. check laser_link tf, might cause problems
-3. bumper check -> change event to disable motors
-4. write documentation
+1. router setup screenshots, screenshots of rqt_graph and rqt_tf_tree
+2. check laser_link tf, might cause problems (due to robot model or because laserdata should be changed to pointcloud2)
+3. check V2 of simple_nav_goal and bumper_state
+4. tune navigation -> use:
+    + http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
+    + https://wiki.ros.org/nav_core
+    + http://wiki.ros.org/costmap_2d
+    + try rosrun rqt_reconfigure rqt_reconfigure
 
 -  OPTIONAL  - 
 1. buy two extra external ports (Rundsteckverbinder CPC Flansch), label them 
-2. try rosrun rqt_reconfigure rqt_reconfigure
-3. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
-4. http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
-5. https://gist.github.com/kartikmohta/67cafc968ba5146bc6dcaf721e61b914
+2. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
+3. for documentation: https://gist.github.com/kartikmohta/67cafc968ba5146bc6dcaf721e61b914
