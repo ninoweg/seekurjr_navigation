@@ -1,12 +1,9 @@
 -  TODO  -
 1. check V2 of simple_nav_goal and bumper_state
-4. tune navigation -> use:
+2. tune navigation -> use:
     + http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
     + https://wiki.ros.org/nav_core
     + http://wiki.ros.org/costmap_2d
     + try rosrun rqt_reconfigure rqt_reconfigure
-
--  OPTIONAL  - 
-1. check laser_link tf, might cause problems (due to robot model or because laserdata should be changed to pointcloud2)
-2. change laser data from scan to pointcloud and use http://wiki.ros.org/pointcloud_to_laserscan, https://www.theconstructsim.com/ros-qa-120-how-to-convert-a-pointcloud-into-a-laser-scan/
-3. for documentation: https://gist.github.com/kartikmohta/67cafc968ba5146bc6dcaf721e61b914
+3. tune AMCL
+4. sync clocks
