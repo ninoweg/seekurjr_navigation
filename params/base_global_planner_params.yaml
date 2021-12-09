@@ -1,4 +1,4 @@
-DWAPlannerROS:
+GlobalPlanner:
   allow_unknown: false
   default_tolerance: 0.1
   # visualize_potential:
