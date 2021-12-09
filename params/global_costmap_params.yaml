@@ -1,3 +1,6 @@
+# GLOBAL COSTMAP PARAMETERS
+# edits based on https://arxiv.org/pdf/1706.09068.pdf
+
 global_costmap: 
   global_frame: map 
   robot_base_frame: base_link
