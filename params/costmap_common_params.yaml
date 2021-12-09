@@ -1,6 +1,6 @@
 # params that apply both global and local costmap
 footprint: [ [0.6, -0.42], [0.6, 0.42], [-0.6, 0.42], [-0.6, -0.42] ]
-footprint_padding: 0.01
+footprint_padding: 0.05
 
 publish_frequency: 3.0
 update_frequency: 4.0
