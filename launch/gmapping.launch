@@ -1,0 +1,10 @@
+<!-- Navigate SeekurJr while creating map using slam_gmapping (on Raspberry). Run rviz to visualize/send goals (on PC). -->
+<launch>
+    <!-- Launch Gmapping-->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+        <rosparam file="$(find seekurjr_navigation)/params/gmap_params2.yaml" command="load" />
+	    <remap from="odom" to="rosaria/pose"/>
+        <remap from="scan" to="scan_filtered"/> 
+    </node>
+
+</launch> 
