@@ -59,3 +59,5 @@
     + make this changes using NetworkManager (over graphical interface), otherwise NetworkManager will reset them during booting
 19. Run launchfiles on Raspberry
     + roslaunch seekurjr_navigation seekurjr_amcl.launch/seekurjr_gmap.launch
+    
+If you should have problems with tf and time, try using chrony!
