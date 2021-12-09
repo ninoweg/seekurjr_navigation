@@ -1,4 +1,5 @@
-# params that apply both global and local costmap
+# COSTMAP COMMON PARAMETERS
+# edits based on https://arxiv.org/pdf/1706.09068.pdf
 
 footprint: [ [0.6, -0.42], [0.6, 0.42], [-0.6, 0.42], [-0.6, -0.42] ]
 footprint_padding: 0.05
