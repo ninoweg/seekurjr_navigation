@@ -1,3 +1,0 @@
-<launch>
-    <node pkg="seekurjr_navigation" name="bumper_state" type="bumper_state" output="screen"/>
-</launch>
