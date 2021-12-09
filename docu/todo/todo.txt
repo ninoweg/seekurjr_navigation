@@ -1,11 +1,7 @@
 -  TODO  -
 1. check V2 of simple_nav_goal and bumper_state
 2. tune navigation -> use:
-    + http://wiki.ros.org/navigation/Tutorials/Navigation%20Tuning%20Guide
-    + https://wiki.ros.org/nav_core
-    + http://wiki.ros.org/costmap_2d
     + try rosrun rqt_reconfigure rqt_reconfigure
-3. tune AMCL -> use paper
-4. sync clocks -> use:
+3. sync clocks -> use:
     + http://wiki.ros.org/ROS/NetworkSetup
     + https://askubuntu.com/questions/787855/how-to-use-chrony-to-synchronize-timestamp-on-two-computers
