@@ -1,3 +1,6 @@
+# LOCAL COSTMAP PARAMETERS
+# edits based on https://arxiv.org/pdf/1706.09068.pdf
+
 local_costmap:
    global_frame: odom
    robot_base_frame: base_link
