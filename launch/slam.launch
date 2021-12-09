@@ -6,9 +6,6 @@
   	<param name="use_gui" value="false" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-	
-    <!-- Launch TF with params -->
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 base_link base_laser 100" /> 
 
     <!-- Launch Rosaria and asign USB port -->
     <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
