@@ -206,8 +206,8 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(bumper_state src/bumper_state.cpp)
-target_link_libraries(bumper_state ${catkin_LIBRARIES}) 
+add_executable(bumpers_disablemotor src/bumpers_disablemotor.cpp)
+target_link_libraries(bumpers_disablemotor ${catkin_LIBRARIES}) 
 
 add_executable(simple_navigation_goals src/simple_navigation_goals.cpp)
 target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES}) 
