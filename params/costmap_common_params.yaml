@@ -23,7 +23,6 @@ obstacle_layer:
     clearing: true
     inf_is_valid: true
   
-#cost_scaling_factor and inflation_radius were now moved to the inflation_layer ns
 inflation_layer:
   enabled:              true
   cost_scaling_factor:  2.58  # exponential rate at which the obstacle cost drops off (default: 10)
