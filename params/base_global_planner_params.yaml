@@ -1,7 +1,17 @@
-NavfnROS:
+DWAPlannerROS:
   allow_unknown: false
   default_tolerance: 0.1
-  cost_factor: 0.55
-  neutral_cost: 66
-  lethal_cost: 253
+  # visualize_potential:
+  # use_dijkstra:
+  # use_quadratic:
+  # use_grid_path:
+  # old_navfn_behavior:
+  lethal_cost: 253  
+  neutral_cost: 66 # 50
+  cost_factor: 0.55 # 3.0
+  # publish_potential:
+  # orientation_mode: 0 
+  # orientation_window_size: 1
+  # outline_map: true
+
 
