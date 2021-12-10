@@ -23,7 +23,7 @@
     </node>
 
     <!-- Launch Bumper State -->
-    <node pkg="seekurjr_navigation" name="bumper_state" type="bumper_state" output="screen"/>
+    <node pkg="seekurjr_navigation" name="bumpers_disablemotor" type="bumpers_disablemotor" output="screen"/>
 
     <!-- Launch MapServer -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find seekurjr_navigation)/map/terrace.yaml" />       
