@@ -1,0 +1,17 @@
+<!-- Main launch file to navigate SeekurJr on an existing map (on Raspberry). Run rviz to send goals (on PC). -->
+<launch>
+    <!-- Launch Rosaria and asign USB port -->
+    <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
+        <param name="port" value="/dev/ttyUSB0" type="string"/>
+    </node>
+
+    <!-- Launch LMS 100 with params -->
+    <node name="sick_lms_1xx" pkg="sick_scan" type="sick_generic_caller" respawn="false" output="screen">
+        <rosparam file="$(find seekurjr_navigation)/params/lms1xx_params.yaml" command="load" />
+    </node>
+
+    <!-- Launch Laser Filter for angular limitation -->
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain"  name="laser_filter">
+        <rosparam command="load" file="$(find seekurjr_navigation)/params/laser_filter_params.yaml" />
+    </node>
+</launch> 

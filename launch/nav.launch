@@ -1,26 +1,14 @@
 <!-- Main launch file to navigate SeekurJr on an existing map (on Raspberry). Run rviz to send goals (on PC). -->
 <launch>
     <!-- Launch TF with params and Robot URDF -->
-    <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />
+    <!-- <arg name="urdf" default="$(find seekurjr_navigation)/urdf/seekurjr.urdf" />
     <param name="robot_description" textfile="$(arg urdf)"  />
   	<param name="use_gui" value="false" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
-    <!-- Launch Rosaria and asign USB port -->
-    <node pkg="rosaria" type="RosAria" name="rosaria" output="screen">
-        <param name="port" value="/dev/ttyUSB0" type="string"/>
-    </node>
-
-    <!-- Launch LMS 100 with params -->
-    <node name="sick_lms_1xx" pkg="sick_scan" type="sick_generic_caller" respawn="false" output="screen">
-        <rosparam file="$(find seekurjr_navigation)/params/lms1xx_params.yaml" command="load" />
-    </node>
-
-    <!-- Launch Laser Filter for angular limitation -->
-    <node pkg="laser_filters" type="scan_to_scan_filter_chain"  name="laser_filter">
-        <rosparam command="load" file="$(find seekurjr_navigation)/params/laser_filter_params.yaml" />
-    </node>
+    <!-- Launch TF with params -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_laser" args="0.51 0 0.3 0 0 0 1 base_link base_laser" />
 
     <!-- Launch Bumper State -->
     <node pkg="seekurjr_navigation" name="bumpers_disablemotor" type="bumpers_disablemotor" output="screen"/>
@@ -30,8 +18,8 @@
 
     <!-- Launch AMCL with params-->
     <node pkg="amcl" type="amcl" name="amcl">
-	<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
-	<remap from="scan" to="scan_filtered"/> 
+    	<rosparam file="$(find seekurjr_navigation)/params/amcl_params.yaml" command="load" />
+	    <remap from="scan" to="scan_filtered"/> 
         <remap from="odom" to="rosaria/pose"/>
     </node>
    
