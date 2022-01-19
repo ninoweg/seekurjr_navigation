@@ -4,7 +4,7 @@ Navigation Package for SeekurJr running on Raspberry Pi 4
 Includes:
 + docu: documentation files for every component, includes setup file 
 + launch: every launch file you need to navigate SeekurJr
-+ map: maps of public terrace used for amcl
++ map: maps of public terrace used for navigation
 + params: yaml files which set all necessary parameters
 + rviz: rviz setup files for starting rviz with correct settings
 + src: source files for simple_navigation_goals and bumper_state
