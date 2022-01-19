@@ -6,6 +6,7 @@
 3. Install Packages:
     + navigation - sudo apt-get install ros-noetic-navigation
     + slam_gmapping - sudo apt-get install ros-noetic-slam-gmapping
+    + hector_slam - sudo apt-get install ros-noetic-hector-slam
     + Aria - sudo apt install libaria-dev
     + sick_scan - catkin: https://github.com/SICKAG/sick_scan.git
     + rosaria - catkin: https://github.com/amor-ros-pkg/rosaria.git
@@ -19,13 +20,13 @@
     + ROS_MASTER_URI=http://<your-pcs-ip-address>
     + ROS_IP=<your-pcs-ip-address>
     + when you are not running on multiple machines or in another network, remember to comment out any lines you added/edit your ip-adress in /etc/hosts
-8. Launch rviz.lauch (gmap/amcl.launch files only run on raspberry (LMS and Rosaria are connected to the raspberry), you can run everything else on your PC):
+8. Launch rviz.lauch (and any other launch file beside rosaria and lms1xx, these two need to run on the raspberry)
 
 - SETUP RASPBERRY FOR SEEKURJR -
 1. Install Ubuntu Server (Ubunutu 20.04.3 LTS) on Raspberry Pi 4 4GB 
     + https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview
 2. Do everything as described in 1. without installing a desktop (not needed when accessing over ssh and just consumes ram)
-3. Login: user=ubuntu, password=seekurv4r 
+3. Login: user=ubuntu, password=seekurv4r
 4. When ubuntu is installed, change username -> "sudo nano /etc/hostname" -> user=seekurjr (use "sudo passwd" to change password)
 5. Run "sudo dpkg-reconfigure keyboard-configuration" to reconfigure your keyboard
 6. "sudo reboot" to apply changes
@@ -38,6 +39,7 @@
 12. Install Packages:
     + navigation - sudo apt-get install ros-noetic-navigation
     + slam_gmapping - sudo apt-get install ros-noetic-slam-gmapping
+    + hector_slam - sudo apt-get install ros-noetic-hector-slam
     + Aria - sudo apt install libaria-dev
     + sick_scan - catkin: https://github.com/SICKAG/sick_scan.git
     + rosaria - catkin: https://github.com/amor-ros-pkg/rosaria.git
@@ -58,6 +60,7 @@
     + ping 169.254.148.77 to verify if Laser is connected
     + make this changes using NetworkManager (over graphical interface), otherwise NetworkManager will reset them during booting
 19. Run launchfiles on Raspberry
-    + roslaunch seekurjr_navigation seekurjr_amcl.launch/seekurjr_gmap.launch
+    + roslaunch seekurjr_navigation slam.launch/nav.launch
     
 If you should have problems with tf and time, try using chrony!
+    + http://wiki.ros.org/ROS/NetworkSetup
