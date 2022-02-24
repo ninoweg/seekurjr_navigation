@@ -3,23 +3,71 @@
 #include <actionlib/client/simple_action_client.h>
 #include <std_msgs/Float32.h>
 
-typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
+using actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> = MoveBaseClient;
+using actionlib::SimpleClientGoalState = GoalState;
 
-void batterystateCallback(const std_msgs::Float32::ConstPtr& msg, float &battery_state)
+class MoveBetweenGoals 
 {
-  battery_state=msg->data;
+private:
+  const std::vector<double> goals;
+  const std::vector<double> home;
+  float battery_state;
+  ros::Subscriber battery_state_of_charge;
+  int count, i;
+  move_base_msgs::MoveBaseGoal goal;
+
+public:
+  void MoveBetweenGoals(ros::NodeHandle& n)
+  {
+    ros::param::get("/simple_navigation_goals/home", home);
+    ros::param::get("/simple_navigation_goals/goals", goals);
+    count = goals.size();
+    ROS_INFO("Number Of Goals: [%d]",count/4);
+    battery_state_of_charge = n.subscribe("/rosaria/battery_state_of_charge", 1000, batterystateCallback);
+  }
+
+  void batterystateCallback(std_msgs::Float32::ConstPtr msg)
+  {
+    ROS_INFO("Battery State was updated!");
+    battery_state=msg->data;
+    ROS_INFO("Battery state: [%f]", battery_state);
+  }
+
+  GoalState sendToNextGoal(int& batteryStateOfCharge)
+  {
+    goal.target_pose.header.frame_id = "map";
+    goal.target_pose.header.stamp = ros::Time::now();
+    goal.target_pose.pose.position.x = goals[count];
+    goal.target_pose.pose.position.y = goals[count+1];
+    goal.target_pose.pose.orientation.w = goals[count+2];
+
+    ROS_INFO("Sending goal");
+    ac.sendGoal(goal);
+    count++;
+
+    return ac.getState(); // actionlib::SimpleClientGoalState::SUCCEEDED
+  }
+
+  GoalState sendHome()
+  {
+    goal.target_pose.header.frame_id = "map";
+    goal.target_pose.header.stamp = ros::Time::now();
+    goal.target_pose.pose.position.x = home[0];
+    goal.target_pose.pose.position.y = home[1];
+    goal.target_pose.pose.orientation.z = home[2];
+    goal.target_pose.pose.orientation.w = home[3];
+
+    ROS_INFO("Battery state low. Sending goal to return to home.");
+    ac.sendGoal(goal);
+    ac.waitForResult();
+
+    return ac.getState();
+  }
 }
 
 int main(int argc, char** argv){
-  static std::vector<double> goals;
-  static std::vector<double> home;
-  ros::param::get("/simple_navigation_goals/goals", goals);
-  ros::param::get("/simple_navigation_goals/home", home);
-  move_base_msgs::MoveBaseGoal goal;
-  float battery_state = 0.0;
-
-  ros::init(argc, argv, "send_goals");
-  
+  ros::init(argc, argv, "simple_navigation_goals");
+ 
   //tell the action client that we want to spin a thread by default
   MoveBaseClient ac("move_base", true);
 
@@ -30,57 +78,7 @@ int main(int argc, char** argv){
   ROS_INFO("move_base action server is up");
 
   ros::NodeHandle n;
-  ros::Subscriber battery_state_of_charge = n.subscribe<std_msgs::Float32>("/rosaria/battery_state_of_charge", 1000, boost::bind(batterystateCallback, _1, battery_state);
-  
-  //making sure we get valid battery state
-  while(battery_state==0.0){
-     ROS_INFO("Waiting for valid battery state");
-     ros::Duration(5).sleep();
-     ros::spinOnce();
-  }
-  ROS_INFO("Battery state: [%f]", battery_state);
-
-  ROS_INFO("Number Of Goals: [%d]",count/4);
-
-  while(battery_state > 0.2){
-    for(int i = 0; i<goals.size(); i=i+4){
-      goal.target_pose.header.frame_id = "map";
-      goal.target_pose.header.stamp = ros::Time::now();
-      goal.target_pose.pose.position.x = goals[i];
-      goal.target_pose.pose.position.y = goals[i+1];
-      goal.target_pose.pose.orientation.w = goals[i+2];
-
-      ROS_INFO("Sending goal");
-      ac.sendGoal(goal);
-      ac.waitForResult();
-
-      if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-        ROS_INFO("Hooray, the next goal was reached!");
-      else
-        ROS_INFO("The base failed to move to the next point");
-
-      if(battery_state < 0.1)
-        return 0;
-      
-      ros::spinOnce();
-    }
-  }
-  
-  goal.target_pose.header.frame_id = "map";
-  goal.target_pose.header.stamp = ros::Time::now();
-  goal.target_pose.pose.position.x = home[0];
-  goal.target_pose.pose.position.y = home[1];
-  goal.target_pose.pose.orientation.z = home[2];
-  goal.target_pose.pose.orientation.w = home[3];
-
-  ROS_INFO("Battery state low. Sending goal to return to home.");
-  ac.sendGoal(goal);
-  ac.waitForResult();
-
-  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, home was reached in time! Please plug in your robot");
-  else
-    ROS_INFO("The robot failed to get home.");
+  MoveBetweenGoals mbg = MoveBetweenGoals(n);
 
   return 0;
 }
