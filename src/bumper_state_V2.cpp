@@ -15,7 +15,7 @@ public:
     bumper_state = n.subscribe("/rosaria/bumper_state", 10, &bumperstateCallback, this);
     motor = n.serviceClient<std_srvs::Empty>("/rosaria/disable_motors");
   }
-  void bumperstateCallback(rosaria::BumperState::ConstPtr msg)
+  void bumperstateCallback(rosaria::BumperState::ConstPtr& msg)
   {
     for(int i = 0; i<4; i++)
     {
