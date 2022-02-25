@@ -5,8 +5,8 @@
 #include <utility>
 #include <vector>
 
-using actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> = MoveBaseClient;
-using actionlib::SimpleClientGoalState = GoalState;
+using MoveBaseClient = actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction>;
+using GoalState = actionlib::SimpleClientGoalState;
 
 class MoveBetweenGoals 
 {
