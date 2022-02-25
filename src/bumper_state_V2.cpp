@@ -7,7 +7,6 @@ class BumperDisableMotor
 private:
   ros::ServiceClient motor;
   ros::Subscriber bumper_state;
-  ros::ServiceClient enable_motor
   std_srvs::Empty srv;
 public:
   void BumperDisableMotor(ros::NodeHandle& n)
